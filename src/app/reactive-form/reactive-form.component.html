@@ -1,0 +1,37 @@
+
+<p>Modifier Vos données</p>
+
+<form [formGroup]="examenform" (ngSubmit)="updateEtudiant()" >
+  Id <input class="form-control" type="text" formControlName="id" [(ngModel)]="e.id" disabled />
+  <div *ngIf="examenform.get('id').invalid">id obligatoire </div>
+  <br>
+  Nouveau Nom <input class="form-control" type="text" formControlName="nom" [(ngModel)]="e.nom" />
+  <div *ngIf="examenform.get('nom').invalid">
+    <div *ngIf="examenform.get('nom').touched && examenform.get('nom').errors.required">nom obligatoire </div>
+    <div *ngIf="examenform.get('nom').errors.minlength">minlength=3 </div>
+  </div>
+  <br>
+  Nouveau Prenom <input class="form-control" type="text" formControlName="prenom" [(ngModel)]="e.prenom" />
+  <div *ngIf="prenomEtudi.invalid">
+Prenom obligatoire
+  </div>
+  <br>
+
+  Nouveau Age <input class="form-control" type="text" formControlName="age" [(ngModel)]="e.age" />
+  <div *ngIf="examenform.invalid">
+    <div >age obligatoire </div>
+
+  </div>
+  Nouvelle note <input class="form-control" type="text" formControlName="note" [(ngModel)]="e.note" />
+  <div *ngIf="examenform.invalid">
+    <div >note obligatoire </div>
+
+  </div>
+  New like <input class="form-control" type="text" formControlName="like" [(ngModel)]="e.like" />
+  <div *ngIf="examenform.invalid">
+    <div>like obligatoire </div>
+
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary" [disabled]="examenform.invalid">Modifier</button>
+</form>

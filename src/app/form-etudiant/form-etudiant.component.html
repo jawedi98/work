@@ -1,0 +1,52 @@
+<p><u>Formulaire Etudiant</u></p>
+<form #f="ngForm" (ngSubmit)="addEtudiant()" class="form-check">
+
+  <div class="form-group">
+    <label>Id </label>
+    <input type="number" name="idetudiant" [(ngModel)]="etudiant.id" #id="ngModel" required class="form-control col-md-3" >
+    <div class="alert alert-danger" *ngIf="id.invalid &&id.touched">ID obligatoire</div>
+  </div>
+  <div class="form-group">
+    <label>Nom </label>
+    <input type="text" name="nom" [(ngModel)]="etudiant.nom" #nom="ngModel" required minlength="3" class="form-control col-md-3" >
+    <div *ngIf="nom.invalid && nom.touched">
+      <div class="alert alert-danger" *ngIf="nom.errors?.required" >Nom obligatoire</div>
+      <div class="alert alert-danger" *ngIf="nom.errors?.minlength">Nom minimum 3 caractéres</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Prenom </label>
+    <input type="text" name="prenom" [(ngModel)]="etudiant.prenom" #p="ngModel" required minlength="3" class="form-control col-md-3" >
+    <div *ngIf="p.invalid && p.touched">
+      <div class="alert alert-danger" *ngIf="p.errors?.required" >Prenom obligatoire</div>
+      <div class="alert alert-danger" *ngIf="p.errors?.minlength">Prenom minimum 3 caractéres</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Age</label>
+    <input type="number" name="age" [(ngModel)]="etudiant.age" #a="ngModel" required class="form-control col-md-3" pattern="[1-9][0-9]*">
+    <div *ngIf="a.invalid && a.touched">
+    <div class="alert alert-danger" [hidden]="!(a.errors?.required)">Age is required</div>
+    <div class="alert alert-danger" [hidden]="a.value >0 ">Age should be positiv</div>
+  </div>
+  </div>
+  <div class="form-group">
+    <label>Note</label>
+    <input type="number" name="note" [(ngModel)]="etudiant.note" #n="ngModel" required class="form-control col-md-3" pattern="[1-9][0-9]*">
+    <div *ngIf="n.invalid && n.touched">
+      <div class="alert alert-danger" [hidden]="!(n.errors?.required)">Note is required</div>
+      <div class="alert alert-danger" [hidden]="n.value >0 ">Note should be positiv</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Likes</label>
+    <input type="number" name="like" [(ngModel)]="etudiant.like" #l="ngModel" required class="form-control col-md-3" pattern="[1-9][0-9]*">
+    <div *ngIf="l.invalid && l.touched">
+      <div class="alert alert-danger" [hidden]="!(l.errors?.required)">Likes is required</div>
+      <div class="alert alert-danger" [hidden]="l.value >0 ">Likes should be positiv</div>
+    </div>
+  </div>
+  <button type="submit" [disabled]="f.invalid" class="btn btn-warning" (click)="getEtudiant()">Save</button>
+</form>
+
+

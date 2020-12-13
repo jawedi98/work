@@ -1,0 +1,31 @@
+<p>Data-Binding Test</p>
+
+<input type="number" [(ngModel)]="age" [ngStyle]="{'background-color' : age < 20 ? 'red' : 'green', 'font-size' : age < 20 ? '20px' : '50px'}">
+<input type="number" [(ngModel)]="age" [ngStyle]="{'background-color' : getColor(), 'font-size' : getSize()}">
+<button [ngClass]="'btn btn-success'">Test</button>
+{{age}}
+<router-outlet></router-outlet>
+<!---
+<ul>
+  <div *ngFor="let e of etudiants let i=index ">
+    <li *ngIf="e.age > 20">
+    id: {{e.id}}---{{e.nom}}---{{e.prenom}}---{{e.age}}---{{e.note}}
+      <button [disabled]="e.note >= 20" (click)="note(i)">Note +1</button>
+    </li>
+  </div>
+</ul>
+--->
+<style>
+  a{
+
+  }
+</style>
+<app-form-etudiant (newe)="addEtudiant($event)" (newlist)="updateListe($event)"></app-form-etudiant>
+<p  style="text-shadow:1px 1px 0 #444">La liste des Etudiants</p>
+<div class="row" *ngFor="let e of etudiants let i=index">
+  <app-etudiant  [etudiant]="e" (liked)="addLikes($event)"></app-etudiant>
+  <a class="alert-light" [routerLink]="['/etudiants/detail',e.id]">Details</a>
+  <button class="btn btn-outline-warning" (click)="deleteE(e)" >Supprimer</button>
+  <button class="btn btn-dark" [routerLink]="['/update',e.id]" >Modifier</button>
+</div>
+

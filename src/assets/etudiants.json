@@ -1,0 +1,5 @@
+[
+      {"id": 1,"nom": "jawedi","prenom": "aziz","age":30,"note": 12,"like": 0 },
+      {"id": 2,"nom": "jawedi","prenom": "mohamed","age":32,"note": 20,"like": 1 },
+      {"id": 3,"nom": "jawedi","prenom": "jesser","age":34,"note": 14,"like": 2 }
+    ]

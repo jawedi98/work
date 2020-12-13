@@ -1,0 +1,61 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "etudiants": [
+    {
+      "id": 2,
+      "nom": "jawedi",
+      "prenom": "mohamed",
+      "age": 32,
+      "note": 20,
+      "like": "999"
+    },
+    {
+      "id": 3,
+      "nom": "dakhli",
+      "prenom": "bouthaina",
+      "age": "40",
+      "note": "20",
+      "like": "20"
+    },
+    {
+      "id": 5,
+      "nom": "dzs",
+      "prenom": "xsz",
+      "age": 5,
+      "note": 5,
+      "like": 5
+    },
+    {
+      "id": 9,
+      "nom": "daz",
+      "prenom": "dszc",
+      "age": 4,
+      "note": 4,
+      "like": 4
+    },
+    {
+      "id": 1,
+      "nom": "eee",
+      "prenom": "eee",
+      "age": 3,
+      "note": 1,
+      "like": 2
+    }
+  ]
+}
